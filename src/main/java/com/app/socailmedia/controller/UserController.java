@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.app.socailmedia.UserNotFoundException;
 import com.app.socailmedia.model.User;
 import com.app.socailmedia.services.UserDaoService;
 
@@ -43,7 +44,12 @@ public class UserController {
 
     @GetMapping("/users/{id}")
     public User findSingleUser(@PathVariable int id) {
-        return userDaoService.findUserById(id);
+        User user = userDaoService.findUserById(id);
+
+        if (user == null)
+            throw new UserNotFoundException("id:" + id);
+
+        return user;
     }
 
     @PostMapping("/users")
