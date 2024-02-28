@@ -11,7 +11,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class User {
-    int id;
+    Integer id;
     String userName;
     LocalDate localDate;
 }
