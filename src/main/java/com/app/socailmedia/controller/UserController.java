@@ -3,7 +3,11 @@ package com.app.socailmedia.controller;
 import java.net.URI;
 import java.util.List;
 
+import org.apache.tomcat.util.file.ConfigurationSource.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -63,5 +67,20 @@ public class UserController {
                 .toUri();
         return ResponseEntity.created(location).build();
     }
+
+
+    // @GetMapping("/fish")
+    // public ResponseEntity getFishes(){
+    //     return   ResponseEntity.badRequest().build();
+    // }
+
+
+    // @GetMapping("/fish")
+    // public ResponseEntity getFishes(@RequestBody String resource){
+    //     Logger logger=LoggerFactory.getLogger(getClass());
+    //     logger.info("this resources"+resource);
+    //      return   ResponseEntity.ok(resource);
+    // }
+
 
 }

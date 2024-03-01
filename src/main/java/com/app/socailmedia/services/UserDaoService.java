@@ -32,11 +32,17 @@ public class UserDaoService {
     }
 
     public User saveUser(User user) {
-     
-         user.setId(++count);
-         userList.add(user);
+
+        user.setId(++count);
+        userList.add(user);
 
         return user;
+
+    }
+
+    public void deleteById(int id) {
+
+        userList.removeIf(data -> data.getId().equals(id));
 
     }
 
